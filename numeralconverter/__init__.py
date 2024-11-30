@@ -1,5 +1,7 @@
+'''MODULE CONVERTS DIFFERENT NUMERALS BETWEEN EACH OTHER'''
+
 from .roman_convertion import roman_convert_from, roman_convert_to
-from .utils import is_valid_roman, is_valid_decimal
+from .utils import is_valid_decimal
 
 def convert(value, from_format, to_format):
     """
@@ -15,14 +17,13 @@ def convert(value, from_format, to_format):
     """
     converters = {
         "roman": (roman_convert_from, roman_convert_to),
-        "decimal": (lambda x: str(x), str),
+        "decimal": (),
     }
-    
+
     if from_format.lower() not in converters or to_format.lower() not in converters:
         raise ValueError(f"Unsupported format: {from_format} or {to_format}")
 
-   
-    base10_value = converters[from_format][0](value)
+    base10_value = is_valid_decimal(value)
     if to_format.lower() == 'decimal':
         return base10_value
 

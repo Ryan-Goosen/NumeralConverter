@@ -15,7 +15,7 @@ def __partion_number__(number):
             partitioned_number.append(int(f'{val}{'0'*(len(number) - pos -1)}'))
     return partitioned_number
 
-def roman_convert_from(numeral:str)->str:
+def from_roman(numeral:str)->str:
     '''Converts a number from roman numerals to base 10'''
     is_valid_roman(numeral)
     number = 0
@@ -30,8 +30,7 @@ def roman_convert_from(numeral:str)->str:
 
     return number
 
-
-def roman_convert_to(number:int) -> str:
+def to_roman(number:int) -> str:
     '''Converts a base 10 to Roman Numerals'''
     number = is_valid_decimal(number)
     value_is_valid_size(number)

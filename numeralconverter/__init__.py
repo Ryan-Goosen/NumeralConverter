@@ -1,6 +1,6 @@
 '''MODULE CONVERTS DIFFERENT NUMERALS BETWEEN EACH OTHER'''
 
-from .roman_convertion import roman_convert_from, roman_convert_to
+from .roman_convertion import from_roman, to_roman
 from .utils import is_valid_decimal
 
 def convert(value, from_format, to_format):
@@ -16,7 +16,7 @@ def convert(value, from_format, to_format):
         The converted numeral.
     """
     converters = {
-        "roman": (roman_convert_from, roman_convert_to),
+        "roman": (from_roman, to_roman),
         "decimal": (),
     }
 

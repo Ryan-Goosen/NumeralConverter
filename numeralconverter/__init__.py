@@ -3,7 +3,7 @@
 from .roman_convertion import from_roman, to_roman
 from .utils import is_valid_decimal
 
-def convert(value, from_format, to_format):
+def convert(value:str, from_format:str, to_format:str) -> str:
     """
     Convert a numeral from one format to another.
 
@@ -16,7 +16,7 @@ def convert(value, from_format, to_format):
         The converted numeral.
     """
     converters = {
-        "roman": (from_roman, to_roman),
+        "roman": (from_roman,   ),
         "decimal": (),
     }
 

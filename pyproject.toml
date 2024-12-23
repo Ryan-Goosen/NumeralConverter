@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [project]
 name = "numeralconverter"
 version = "0.1.0"
@@ -5,3 +6,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+=======
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+>>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9

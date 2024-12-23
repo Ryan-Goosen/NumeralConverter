@@ -1,6 +1,9 @@
 '''MODULE CONVERTS DIFFERENT NUMERALS BETWEEN EACH OTHER'''
 
+<<<<<<< HEAD
 from .binary_convertion import from_binary, to_binary
+=======
+>>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
 from .roman_convertion import from_roman, to_roman
 from .utils import is_valid_decimal
 
@@ -8,6 +11,7 @@ def convert(value:str, from_format:str, to_format:str) -> str:
     """
     Convert a numeral from one format to another.
 
+<<<<<<< HEAD
     Parameters
     ----------
     value : str
@@ -34,6 +38,19 @@ def convert(value:str, from_format:str, to_format:str) -> str:
         "roman": (from_roman, to_roman),
         "decimal": (),
         "binary":(from_binary, to_binary),
+=======
+    Args:
+        value: The numeral to convert.
+        from_format: The current format of the numeral (e.g., "roman", "binary").
+        to_format: The target format (e.g., "morse", "binary").
+
+    Returns:
+        The converted numeral.
+    """
+    converters = {
+        "roman": (from_roman,   ),
+        "decimal": (),
+>>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
     }
 
     if from_format.lower() not in converters or to_format.lower() not in converters:

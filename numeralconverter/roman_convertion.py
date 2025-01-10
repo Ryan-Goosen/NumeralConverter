@@ -1,15 +1,7 @@
 '''CONVERTS A VALUE FROM AND TO ROMAN NUMERALS OR DECIMAL '''
-<<<<<<< HEAD
 from .utils import is_valid_size, is_valid_decimal, is_valid_numeral, roman_order_correct
 
 NUMERALS = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M',}
-=======
-from .utils import is_valid_roman, is_valid_decimal, value_is_valid_size
-
-NUMERALS = {
-    1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M',
-}
->>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
 REVERSE_NUMERALS = {v: k for k, v in NUMERALS.items()}
 SORTED_NUMERALS = sorted(NUMERALS, reverse=True)
 
@@ -30,14 +22,9 @@ def from_roman(numeral:str) -> int:
     Returns:
         The converted numeral as an integer.
     """
-<<<<<<< HEAD
 
     is_valid_numeral(numeral, NUMERALS.values())
     roman_order_correct(numeral, REVERSE_NUMERALS)
-=======
-    
-    is_valid_roman(numeral)
->>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
     number = 0
     previous = 0
     for num in numeral:
@@ -50,11 +37,8 @@ def from_roman(numeral:str) -> int:
 
     return number
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
 def to_roman(number:int) -> str:
     """
     Convert a number from decimal to roman numeral.
@@ -62,17 +46,10 @@ def to_roman(number:int) -> str:
     Args:
         number: The decimal number you want to convert.
     Returns:
-<<<<<<< HEAD
         The converted number as a numeral.
     """
     number = is_valid_decimal(number)
     is_valid_size(number, maximum=3999, minimum=1)
-=======
-        The converted numeral.
-    """
-    number = is_valid_decimal(number)
-    value_is_valid_size(number)
->>>>>>> 5604d5f167d995b0a355d62bf3a863447f40a0a9
 
     partioned_number = __partion_number__(number)
     converted = []

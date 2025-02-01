@@ -76,7 +76,7 @@ def is_valid_numeral(numeral:str, numeral_chars:list) -> None:
     valid_chars = all(char in numeral_chars for char in numeral)
 
     if not valid_chars:
-        raise ValueError(f'Invalid char in string({numeral})')
+        raise ValueError(f'Invalid char/s in string({numeral})')
 
 # ==========================
 # ROMAN CONVERSIONS
@@ -119,10 +119,10 @@ def roman_order_correct(roman:str, roman_numerals) -> bool:
     return True
 
 # ==========================
-# BINARY CONVERSIONS
+# BASE CONVERSIONS
 # ==========================
 
 def largest_exponent(number, root):
-    if number <= 1 and -1 < root < 1:
+    if number <= 1 and -1 < abs(root) < 1:
         raise ValueError("Base (x) must be > 1 and target (y) must be >= 1")
-    return math.floor(math.log(number, root))
+    return math.floor(math.log(number, abs(root)))

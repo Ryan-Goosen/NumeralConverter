@@ -16,7 +16,7 @@ def from_base(numeral:str, base:int) -> int:
     """
     is_valid_decimal(base)
     BINARIES = {
-        str(i):i for i in range(base) 
+        str(i):i for i in range(abs(base)) 
     }
     is_valid_numeral(numeral, BINARIES)
     

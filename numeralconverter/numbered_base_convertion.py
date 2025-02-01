@@ -41,7 +41,7 @@ def to_base(number:int, base:int) -> str:
     """
     is_valid_decimal(base)
     number = is_valid_decimal(number)
-    is_valid_size(number, minimum=0, maximum=2**1000)
+    is_valid_size(number, minimum=0, maximum=10)
     if number == 0:
         return '0'
     

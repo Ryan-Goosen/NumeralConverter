@@ -1,6 +1,6 @@
 '''Contains all the little utility functions that can also be used else where'''
 
-import sys, math
+import sys, math, string
 sys.tracebacklimit = 0
 
 
@@ -20,10 +20,10 @@ def is_valid_size(number, minimum, maximum) -> None:
     Returns:
         None.
     """
-    if not number <= maximum:
+    if int(number) > int(maximum):
         raise ValueError(f'Max allowed value is {maximum}')
-    
-    if not minimum <= number:
+
+    if int(number) < int(minimum):
         raise ValueError(f'Minimum allowed value is {minimum}')
 
 def is_valid_decimal(number:str) -> int:
@@ -45,6 +45,8 @@ def is_valid_decimal(number:str) -> int:
 
     try:
         if "." in str(number):
+            raise ValueError(f"Only whole numbers are accepted: {number}")
+        if "-" in str(number):
             raise ValueError(f"Only whole numbers are accepted: {number}")
         number = int(number)
         return number
@@ -71,8 +73,7 @@ def is_valid_numeral(numeral:str, numeral_chars:list) -> None:
     if len(numeral) < 1:
         raise ValueError("Empty string can't be converted.")
 
-    numeral = numeral.upper()
-    numeral_chars = list(numeral_chars)
+    # numeral_chars = list(numeral_chars)
     valid_chars = all(char in numeral_chars for char in numeral)
 
     if not valid_chars:
@@ -81,7 +82,6 @@ def is_valid_numeral(numeral:str, numeral_chars:list) -> None:
 # ==========================
 # ROMAN CONVERSIONS
 # ==========================
-# <------ FROM ROMAN ----------->
 def roman_order_correct(roman:str, roman_numerals) -> bool:
     '''Checks the order of the given roman numeral'''
     previous_value = 0
@@ -121,8 +121,22 @@ def roman_order_correct(roman:str, roman_numerals) -> bool:
 # ==========================
 # BASE CONVERSIONS
 # ==========================
-
 def largest_exponent(number, root):
     if number <= 1 and -1 < abs(root) < 1:
         raise ValueError("Base (x) must be > 1 and target (y) must be >= 1")
     return math.floor(math.log(number, abs(root)))
+
+def correct_binaries(base):
+    if 2 <= base <= 10:
+        return string.digits[:base]
+    elif 11 <= base <= 16:
+        return (string.digits + string.ascii_uppercase)[:base]
+    elif 17 <= base <= 26:
+        return string.ascii_uppercase[:base]
+    elif 27 <= base <= 36:
+        return (string.digits + string.ascii_uppercase)[:base]
+    elif 37 <= base <= 62:
+        return (string.digits + string.ascii_letters)[:base]
+    elif 63 <= base <= 94:
+        return (string.digits + string.ascii_letters + string.punctuation)[:base]
+    

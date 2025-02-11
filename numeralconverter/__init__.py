@@ -4,12 +4,6 @@ from .numbered_base_convertion import from_base, to_base
 from .roman_convertion import from_roman, to_roman
 from .utils import is_valid_decimal
 
-"""
-The way this function is suppose to work is that a user adds a from and to base and we convert the number from to to. These bases can be almost anything so we should account for that.
-TODO: 
-- Fix the convertion process
-    - Allow the convertion process to be less static and work with more options.
-"""
 
 def convert(value:str, from_format:str, to_format:str) -> str:
     """

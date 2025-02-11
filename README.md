@@ -29,7 +29,9 @@ pip install .
 from numeralconverter import convert
 
 result = convert(value='XIV', from_format='roman', to_format='morse')
-print(result) # OUTPUT: .---- ....-
+print(result) 
+<----------->
+OUTPUT: .---- ....-
 ```
 
 ### Direct Conversions
@@ -49,13 +51,15 @@ print(result) # OUTPUT: XIV
 from numeralconverter import from_roman
 
 result = from_roman('XIV')
-print(result) # OUTPUT: 14
+print(result) # 
+<------------>
+OUTPUT: 14
 ```
 
 ## Features
 
 - **Ease of Use**: Easily convert between various numerals and number bases using a single function `convert`.
-- **Specialized Conversion Functions**: Use dedicated functions like `to_roman` to convert a decimal number to Roman numerals, or `from_morse` to convert Morse code to decimal. All conversions go through decimal for consistent results.
+- **Specialized Conversion Functions**: Use dedicated functions like `to_roman` to convert a decimal number to Roman numerals, or `from_base` to convert from a specific base to decimal. All conversions go through decimal for consistent results.
 - **Supports Multiple Numeral Systems**: Includes support for Roman numerals, Morse code, and common number bases like binary, decimal, and hexadecimal.
 - **Flexible Conversions**: Convert between any two supported numeral systems with ease, using either general or specific conversion methods.
 - **Extensible Design**: Easily add new numeral systems or base conversions to the library.
@@ -63,26 +67,33 @@ print(result) # OUTPUT: 14
 ## Supported Numerals and Number Systems
 
 - Roman Numerals (e.g., 'XIV', 'IX')
-- ~~Morse Code (e.g., '.----', '....-')~~
-- ~~Binary (base 2)~~
-- ~~Decimal (base 10)~~
-- ~~Hexadecimal (base 16)~~
-- ~~Octal (base 8)~~
+- Number Bases (accepted bases are '2' to '94')
 
 ## How It Works
 Each convertion has its own file with two main function, one to convert to that numeral and one to convert from that numeral to decimal. In the init file we created the conversion function which takes 3 inputs: value, from_format, to_format. Also to note is that we saved each functions for each language in a dictionary that can be called by using the from and to format. So what happens is that the from_format gets converted to decimal and then from decimal is gets converted to the to_format. It was decided to do this instead of other option because it would be easier to 
 
-Each convertion has module has two classes that can be called one to convert from that numeral to decimal and one to convert from decimal to that format. This functionality was chosen because each and every numeral can be converted with ease to decimal making future expansion of the library easy. The init file contains the main convertion function which calls the convertion function from every other module to make an easy convertion process. 
+Each convertion module has two functions that can be called one to convert from that numeral to decimal and one to convert from decimal to that numeral. This functionality was chosen because each and every numeral can be converted with ease to decimal making future expansion of the library easy. The init file contains the main convertion function which calls the convertion function from every other module to make an easy convertion process. 
 
-Example:
+Example (converting a number from to decimal to base 64): 
 ```python
-from numeralconverter import BinaryConvert
+from numeralconverter import to_base
 
-number = BinaryConvert.convert_to_decimal('1001010')
+number = to_base(number:1000, base=64)
 print(number)
 <-------------->
-OUTPUT: 84 
+OUTPUT: fE 
 ```
+
+Example (converting a number from roman to base 9): 
+```python
+from numeralconverter import convert
+
+number = convert(value='XXX', from_format="roman", to_format="number_base", base=9)
+print(number)
+<-------------->
+OUTPUT: 33
+```
+
 ## Contributing
 As this is a personal portfolio project, contributions are not currently being accepted. However, feel free to explore the code and suggest improvements via GitHub issues or create your own fork!
 

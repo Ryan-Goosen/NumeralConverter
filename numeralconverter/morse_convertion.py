@@ -1,8 +1,8 @@
-class MorseCode:
-    '''DOC STRING'''
+'''CONVERTS A VALUE FROM AND TO MORSE CODE OR DECIMAL'''
 
-    def __init__(self, number):
-        self.symbols = {
+from .utils import correct_binaries
+
+symbols = {
             0: '-----',
             1: '.----',
             2: '..---',
@@ -15,15 +15,8 @@ class MorseCode:
             9: '----.',
         }
 
-        self.number = number
-
-
-    def class_convert_from(self):
-        print(self.symbols[self.number])
-
-
-def morse_convert_from():
+def from_morse(numeral):
     pass
 
-def morse_convert_to():
+def to_morse():
     pass

@@ -5,7 +5,7 @@ from .roman_convertion import from_roman, to_roman
 from .utils import is_valid_decimal
 
 
-def convert(value:str, from_format:str, to_format:str, base=None) -> str:
+def convert(value:str, from_format:str, to_format:str, *base) -> str:
     """
     Convert a numeral from one format to another.
 
@@ -44,12 +44,12 @@ def convert(value:str, from_format:str, to_format:str, base=None) -> str:
 
     needs_base = "number_base" in (from_format, to_format) and (from_format in converters and to_format in converters)
 
-    if needs_base and base is None:
+    if (needs_base and base is None):
         raise ValueError(f"Base must be provided for converting between {from_format} and {to_format}")
 
     from_needs_base = from_format == "number_base"
     to_needs_base = to_format == "number_base"
-
+    
 
     if to_format.lower() == 'decimal':
         converted_value = converters[from_format][0](value, base) if needs_base and base else converters[from_format][0](value)

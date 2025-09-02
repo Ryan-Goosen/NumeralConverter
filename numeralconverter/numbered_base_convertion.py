@@ -1,7 +1,6 @@
 '''CONVERTS A VALUE FROM AND TO BINARY OR DECIMAL'''
 
 from .utils import is_valid_numeral, is_valid_size, is_valid_decimal, largest_exponent, correct_binaries
-import string
 
 def from_base(numeral:str, base:int) -> int:
     """
